@@ -1,4 +1,4 @@
-package com.example.roomex
+package com.example.hiltex.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

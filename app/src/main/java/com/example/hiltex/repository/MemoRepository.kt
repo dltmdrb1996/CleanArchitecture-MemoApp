@@ -1,15 +1,11 @@
-package com.example.hiltex
+package com.example.hiltex.repository
 
 import androidx.lifecycle.LiveData
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
-import com.example.roomex.Todo
+import com.example.hiltex.data.MemoDatabase
+import com.example.hiltex.data.Todo
 import javax.inject.Inject
-import javax.inject.Singleton
 
-class MemoRepository @Inject constructor(private val db : MemoDatabase){
+class MemoRepository constructor(private val db : MemoDatabase){
 
     fun getAll() : LiveData<List<Todo>>{
        return db.todoDao().getAll()

@@ -43,22 +43,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TextView
-            android:id="@+id/main_Tv_Result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{viewModel.title.toString()}"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_Edt_Text" />
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/tasks_list"-->
-<!--            android:layout_width="match_parent"-->
+<!--        <TextView-->
+<!--            android:id="@+id/main_Tv_Result"-->
+<!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
-<!--            app:items="@{viewModel.title}"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            android:text="@{viewModel.title.toString()}"-->
 <!--            app:layout_constraintLeft_toLeftOf="parent"-->
 <!--            app:layout_constraintTop_toBottomOf="@+id/main_Edt_Text" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tasks_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_Edt_Text" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

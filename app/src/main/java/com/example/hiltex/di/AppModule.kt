@@ -2,6 +2,8 @@ package com.example.hiltex
 
 import android.content.Context
 import androidx.room.Room
+import com.example.hiltex.data.MemoDatabase
+import com.example.hiltex.repository.MemoRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

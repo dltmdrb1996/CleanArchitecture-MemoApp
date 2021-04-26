@@ -1,7 +1,10 @@
 package com.example.hiltex
 
+import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableField
 import androidx.lifecycle.*
-import com.example.roomex.Todo
+import com.example.hiltex.repository.MemoRepository
+import com.example.hiltex.data.Todo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -9,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val repository: MemoRepository ,
+    private val repository: MemoRepository,
   ) : ViewModel() {
 
     val todos: LiveData<List<Todo>>
@@ -21,7 +24,6 @@ class MainViewModel @Inject constructor(
         todos = getAll()
         title = observeTitle()
     }
-
 
     fun getAll(): LiveData<List<Todo>> {
         return repository.getAll()
@@ -42,4 +44,6 @@ class MainViewModel @Inject constructor(
             repository.nukeTable()
         }
     }
+
+
 }
