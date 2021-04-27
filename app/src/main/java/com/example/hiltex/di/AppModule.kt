@@ -11,19 +11,17 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Qualifier
 import javax.inject.Singleton
+// hilt를 통해 의존성 관리를 해준다
 
+//
 @InstallIn(SingletonComponent::class)
 @Module
 object MemoDataBaseModule {
-    @Qualifier
-    @Retention(AnnotationRetention.RUNTIME)
-    annotation class MemoDataBase
 
     @Singleton
-    @MemoDataBase
     @Provides
     fun provideMemoDatabase(@ApplicationContext context: Context)=
-        Room.databaseBuilder(context, MemoDatabase::class.java,"Memo.db").build()
+        Room.databaseBuilder(context.applicationContext, MemoDatabase::class.java,"Memo.db").build()
 }
 
 @InstallIn(SingletonComponent::class)
@@ -32,6 +30,6 @@ object MemoRepositoryModule {
 
     @Singleton
     @Provides
-    fun provideMemoRepository(@MemoDataBaseModule.MemoDataBase memoDatabase: MemoDatabase)=
+    fun provideMemoRepository( memoDatabase: MemoDatabase)=
         MemoRepository(memoDatabase)
 }
