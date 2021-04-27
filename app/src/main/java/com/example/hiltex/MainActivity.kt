@@ -2,6 +2,7 @@ package com.example.hiltex
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -19,7 +20,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(){
     private val viewModel by viewModels<MainViewModel>()
     lateinit var binding: ActivityMainBinding
-    private lateinit var adapter: TodoAdapter
+    private lateinit var listAdapter: MemoAdapter
     @Inject lateinit var memoRepository: MemoRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +30,17 @@ class MainActivity : AppCompatActivity(){
 
         binding.viewModel = viewModel
 
+        setupListAdapter()
+    }
 
+
+    private fun setupListAdapter() {
+        val viewModel = binding.viewModel
+        if (viewModel != null) {
+            listAdapter = MemoAdapter(viewModel)
+            binding.recyclerView.adapter = listAdapter
+        } else {
+            Log.e("ViewModel not initialized when attempting to set up adapter.","erre")
+        }
     }
 }

@@ -15,6 +15,9 @@ class MainViewModel @Inject constructor(
     private val repository: MemoRepository,
   ) : ViewModel() {
 
+    private val _items: LiveData<List<Todo>> = getAll()
+    val items: LiveData<List<Todo>> = _items
+
     val todos: LiveData<List<Todo>>
     val title: LiveData<List<String>>
 
