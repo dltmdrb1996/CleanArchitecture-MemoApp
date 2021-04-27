@@ -1,4 +1,4 @@
-#### 클린아키텍처 기반의 간단한 메모앱연습이다
+#### 클린아키텍처 기반의 간단한 메모앱만들기
 
 ## 사용기술
 1. ViewModel
@@ -8,3 +8,4 @@
 5. Room
 
 ## 참고
+<https://github.com/android/architecture-samples/tree/dev-hilt>
