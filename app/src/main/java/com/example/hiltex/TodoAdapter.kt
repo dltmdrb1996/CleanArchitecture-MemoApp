@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hiltex.data.Todo
 import com.example.hiltex.databinding.ActivityMainBinding
 import com.example.hiltex.databinding.ViewHolderBinding
-import com.example.hiltex.generated.callback.OnClickListener
 
 class TodoAdapter(listener : OnItemClick) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
     private val mCallback = listener
@@ -35,7 +34,8 @@ class TodoAdapter(listener : OnItemClick) : RecyclerView.Adapter<TodoAdapter.Tod
     inner class TodoViewHolder(private val binding: ViewHolderBinding):RecyclerView.ViewHolder(binding.root){
 
         fun bind(item: Todo){
-            binding.tvTodo.text = item.title
+            binding.tvNum.text = item.id.toString()
+            binding.tvTitle.text = item.title
             binding.ivIcon.setOnClickListener {
                 mCallback.deleteTodo(item)
             }

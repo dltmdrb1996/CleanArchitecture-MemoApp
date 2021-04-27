@@ -44,6 +44,11 @@ class MainViewModel @Inject constructor(
             repository.nukeTable()
         }
     }
+    fun delete(todo: Todo){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.delete(todo)
+        }
+    }
 
 
 }
