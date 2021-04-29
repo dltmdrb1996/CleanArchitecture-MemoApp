@@ -45,7 +45,6 @@ class MemoAdapter(private val viewModel: MainViewModel) :
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ViewHolderBinding.inflate(layoutInflater, parent, false)
-
                 return ViewHolder(binding)
             }
         }
