@@ -23,7 +23,6 @@ class MemoRepository constructor(private val db: MemoDatabase) {
         withContext(Dispatchers.IO) {
             db.todoDao().delete(todo)
         }
-
     }
 
     suspend fun nukeTable() {

@@ -32,7 +32,7 @@ class MainViewModel @Inject constructor(
     fun insert() {
         val currentTitle = title.value
         if (!currentTitle.isNullOrBlank())
-            viewModelScope.launch(Dispatchers.IO) {
+            viewModelScope.launch {
                 repository.insert(Todo(currentTitle))
             }
         else {
@@ -42,13 +42,13 @@ class MainViewModel @Inject constructor(
     }
 
     fun nukeTable() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             repository.nukeTable()
         }
     }
 
     fun delete(todo: Todo) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             repository.delete(todo)
         }
     }
