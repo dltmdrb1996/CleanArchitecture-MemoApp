@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             listAdapter = MemoAdapter(viewModel)
             binding.recyclerView.adapter = listAdapter
         } else {
-            Log.e("ViewModel not initialized when attempting to set up adapter.", "erre")
+            Log.e("ViewModel not initialized when attempting to set up adapter.", "err")
         }
     }
 

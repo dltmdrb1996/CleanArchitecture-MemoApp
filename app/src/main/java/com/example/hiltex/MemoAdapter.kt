@@ -32,7 +32,7 @@ class MemoAdapter(private val viewModel: MainViewModel) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(viewModel: MainViewModel, item: Todo) {
-            
+
             binding.item = item
             binding.viewModel = viewModel
             binding.executePendingBindings()
