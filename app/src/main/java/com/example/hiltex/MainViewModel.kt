@@ -17,6 +17,7 @@ class MainViewModel @Inject constructor(
     private val repository: MemoRepository,
 ) : ViewModel() {
 
+
     private val _items: LiveData<List<Todo>> = getAll()
     val items: LiveData<List<Todo>> = _items
 
@@ -31,14 +32,14 @@ class MainViewModel @Inject constructor(
 
     fun insert() {
         val currentTitle = title.value
-        if (!currentTitle.isNullOrBlank())
+        if (!currentTitle.isNullOrBlank()) {
             viewModelScope.launch {
                 repository.insert(Todo(currentTitle))
             }
-        else {
+        } else {
             showToast()
         }
-        title.value=""
+        title.value = ""
     }
 
     fun nukeTable() {

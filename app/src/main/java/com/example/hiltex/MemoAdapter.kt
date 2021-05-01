@@ -32,12 +32,9 @@ class MemoAdapter(private val viewModel: MainViewModel) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(viewModel: MainViewModel, item: Todo) {
-
-            binding.tvNum.text = item.id.toString()
-            binding.tvTitle.text = item.title
-            binding.ivIcon.setOnClickListener {
-                viewModel.delete(item)
-            }
+            
+            binding.item = item
+            binding.viewModel = viewModel
             binding.executePendingBindings()
         }
 
